@@ -1,6 +1,8 @@
 import './index.css';
 
 
+
+
 /*SEARCH CITY*/
 const form = document.querySelector(".card form");
 const input = document.querySelector(".card input");
@@ -19,8 +21,9 @@ form.addEventListener("submit", e => {
     .then(response => response.json())
     .then(data => {
       const { main, name, sys, weather } = data;
-      const icon = `http://openweathermap.org/img/wn/${weather[0]["icon"]
-        }@2x.png`;
+      const icon = `http://openweathermap.org/img/wn/${
+        weather[0]["icon"]
+      }@2x.png`;
 
       const li = document.createElement("li");
       li.classList.add("city");
@@ -31,8 +34,9 @@ form.addEventListener("submit", e => {
         </h2>
         <div class="city-temp">${Math.round(main.temp)}<sup>°C</sup></div>
         <figure>
-          <img class="city-icon" src="${icon}" alt="${weather[0]["description"]
-        }">
+          <img class="city-icon" src="${icon}" alt="${
+        weather[0]["description"]
+      }">
           <figcaption>${weather[0]["description"]}</figcaption>
         </figure>
       `;
